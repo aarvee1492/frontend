@@ -1,0 +1,161 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+  --blue-primary: #2D5A8E;
+  --blue-dark: #1E3A5F;
+  --blue-light: #4A7FC4;
+  --blue-muted: #EBF2FA;
+  --gray-50: #F8FAFC;
+  --gray-100: #F1F5F9;
+  --gray-200: #E2E8F0;
+  --gray-300: #CBD5E1;
+  --gray-400: #94A3B8;
+  --gray-500: #64748B;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1E293B;
+  --accent-green: #00B050;
+  --accent-red: #DC2626;
+  --accent-amber: #F59E0B;
+
+  /* Sensor line colors used on the monitoring page */
+  --pz-color:  #007AC2;
+  --tpc-color: #D26900;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--gray-50);
+  color: var(--gray-800);
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-400); }
+
+/* Table */
+.data-table { width: 100%; border-collapse: separate; border-spacing: 0; }
+.data-table thead th {
+  background: var(--gray-100); padding: 10px 16px; text-align: left;
+  font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+  color: var(--gray-500); border-bottom: 1px solid var(--gray-200);
+}
+.data-table tbody td {
+  padding: 12px 16px; border-bottom: 1px solid var(--gray-100);
+  font-size: 14px; color: var(--gray-700);
+}
+.data-table tbody tr:hover { background: var(--blue-muted); }
+
+/* Buttons */
+.btn-primary {
+  background: var(--blue-primary); color: white; border: none;
+  padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.15s;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit;
+}
+.btn-primary:hover { background: var(--blue-dark); box-shadow: 0 1px 3px rgba(0,0,0,0.15); }
+.btn-primary:disabled { background: var(--gray-400); cursor: not-allowed; }
+
+.btn-secondary {
+  background: white; color: var(--gray-700); border: 1px solid var(--gray-300);
+  padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.15s;
+  display: inline-flex; align-items: center; gap: 6px;
+  font-family: inherit;
+}
+.btn-secondary:hover { background: var(--gray-50); border-color: var(--gray-400); }
+
+.btn-danger {
+  background: white; color: var(--accent-red); border: 1px solid #FCA5A5;
+  padding: 8px 16px; border-radius: 6px; font-size: 13px; font-weight: 500;
+  cursor: pointer; transition: all 0.15s; font-family: inherit;
+}
+.btn-danger:hover { background: #FEF2F2; }
+
+.btn-icon {
+  background: transparent; border: 1px solid var(--gray-200); border-radius: 6px;
+  padding: 6px; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--gray-500); transition: all 0.15s;
+}
+.btn-icon:hover { background: var(--gray-100); color: var(--gray-700); }
+
+/* Form */
+.form-input {
+  width: 100%; padding: 8px 12px; border: 1px solid var(--gray-300); border-radius: 6px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--gray-800);
+  background: white; transition: border-color 0.15s;
+}
+.form-input:focus {
+  outline: none; border-color: var(--blue-light);
+  box-shadow: 0 0 0 3px rgba(74, 127, 196, 0.1);
+}
+.form-label {
+  display: block; font-size: 12px; font-weight: 600; color: var(--gray-500);
+  text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 6px;
+}
+.form-select {
+  width: 100%; padding: 8px 12px; border: 1px solid var(--gray-300); border-radius: 6px;
+  font-size: 14px; font-family: 'DM Sans', sans-serif; color: var(--gray-800);
+  background: white; cursor: pointer;
+}
+.form-select:focus { outline: none; border-color: var(--blue-light); box-shadow: 0 0 0 3px rgba(74, 127, 196, 0.1); }
+
+/* Card */
+.card { background: white; border: 1px solid var(--gray-200); border-radius: 8px; overflow: hidden; }
+.card-header {
+  padding: 16px 20px; border-bottom: 1px solid var(--gray-100);
+  display: flex; justify-content: space-between; align-items: center;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed; inset: 0; background: rgba(0, 0, 0, 0.4); backdrop-filter: blur(4px);
+  display: flex; align-items: center; justify-content: center; z-index: 1000;
+}
+.modal-content {
+  background: white; border-radius: 12px; padding: 28px; width: 90%; max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+/* Badge */
+.badge { display: inline-flex; align-items: center; padding: 2px 8px; border-radius: 9999px; font-size: 11px; font-weight: 600; }
+.badge-blue { background: var(--blue-muted); color: var(--blue-primary); }
+.badge-green { background: #ECFDF5; color: #059669; }
+.badge-amber { background: #FFFBEB; color: #D97706; }
+
+/* Pagination */
+.pagination { display: flex; align-items: center; gap: 4px; }
+.page-btn {
+  padding: 6px 10px; border: 1px solid var(--gray-200); border-radius: 4px;
+  font-size: 13px; cursor: pointer; background: white; color: var(--gray-600);
+  font-family: inherit;
+}
+.page-btn:hover { background: var(--gray-50); }
+.page-btn.active { background: var(--blue-primary); color: white; border-color: var(--blue-primary); }
+.page-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* Loading Spinner */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 32px; height: 32px; border: 3px solid var(--gray-200);
+  border-top-color: var(--blue-primary); border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+.recharts-tooltip-wrapper { z-index: 100 !important; }
+
+.drop-zone {
+  border: 2px dashed var(--gray-300); border-radius: 8px;
+  padding: 40px; text-align: center; transition: all 0.2s; cursor: pointer;
+}
+.drop-zone:hover, .drop-zone.active { border-color: var(--blue-light); background: var(--blue-muted); }
