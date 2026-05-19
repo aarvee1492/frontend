@@ -99,7 +99,7 @@ export const api = {
   deleteSite: (siteId: number) =>
     request(`${API_BASE}/sites/${siteId}`, { method: 'DELETE' }),
 
-  setSiteDemo: (siteId: number, data: { demo_started_at?: string | null; demo_interval_seconds?: number }) =>
+  setSiteDemo: (siteId: number, data: { demo_started_at?: string | null; demo_history_end_at?: string | null; demo_history_interval_seconds?: number; demo_interval_seconds?: number }) =>
     request(`${API_BASE}/sites/${siteId}/demo`, { method: 'PUT', body: JSON.stringify(data) }),
 
   // Upload
